@@ -1,0 +1,16 @@
+*~
+.DS_Store
+settings.json
+.vscode
+pic2.jpeg
+bowl-module-statistic-localhost.url
+medium-image.jpg
+Archive
+apartment.component.ts.orig
+room.component.html.orig
+npm
+reqs/dist
+package-lock.json
+yarn.lock
+node_modules
+setup
