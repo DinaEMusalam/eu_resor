@@ -30,7 +30,7 @@ Why Slingshot?
 
 2. **Clone the project**
 
-    `git clone https://github.com/DinaEMusalam/eu_resor.git`.
+    `git clone https://github.com/coryhouse/react-slingshot.git`.
 
 3. **Run the setup script**
 
@@ -67,7 +67,7 @@ Why Slingshot?
 
     ### On Linux
 
-    * Run this to [increase the limit](http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc) on the number of files Linux will watch. [Here's why](https://github.com/DinaEMusalam/react-slingshot/issues/6).
+    * Run this to [increase the limit](http://stackoverflow.com/questions/16748737/grunt-watch-error-waiting-fatal-error-watch-enospc) on the number of files Linux will watch. [Here's why](https://github.com/coryhouse/react-slingshot/issues/6).
 
         `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`.
 
@@ -92,7 +92,7 @@ Why Slingshot?
 4. Make sure files with names that begin with a dot (.editorconfig, .gitignore, .npmrc) are copied to the project directory root. This is easy to overlook if you copy this repository manually.
 5. Don't run the project from a symbolic link. It may cause issues with file watches.
 6. Delete any .eslintrc that you're storing in your user directory. Also, disable any ESLint plugin / custom rules that you've enabled within your editor. These will conflict with the ESLint rules defined in this project.
-7. Make sure you don't have NODE_ENV set to production on your machine. If you do then the [development dependencies won't be installed](https://github.com/DinaEMusalam/react-slingshot/issues/400#issuecomment-290497767). Here's [how to check](http://stackoverflow.com/a/27939821/26180).
+7. Make sure you don't have NODE_ENV set to production on your machine. If you do then the [development dependencies won't be installed](https://github.com/coryhouse/react-slingshot/issues/400#issuecomment-290497767). Here's [how to check](http://stackoverflow.com/a/27939821/26180).
 8. Install watchman with `brew install watchman` if you are having the following error after an initial `npm start -s`:
 
     ```bash

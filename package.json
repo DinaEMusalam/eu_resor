@@ -99,7 +99,21 @@
     "webpack-hot-middleware": "2.18.2",
     "webpack-md5-hash": "0.0.5"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-router",
+    "hot",
+    "reload",
+    "hmr",
+    "live",
+    "edit",
+    "webpack",
+    "redux",
+    "flux",
+    "boilerplate",
+    "starter"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/DinaEMusalam/eu_resor.git"
