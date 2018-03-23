@@ -1,27 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+//import './Home.css';
+import { Redirect } from 'react-router-dom';
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>Log in </h1>
-      <div className="container">
-        <div className="row">
-          <div className="main">
-            <h3>Please Log In</h3>
-            <div className="row">
-              <div className="col-xs-6 col-sm-6 col-md-6">
-                <a href="#" className="btn btn-lg btn-primary btn-block">Facebook</a>
-              </div>
-              <div className="col-xs-6 col-sm-6 col-md-6">
-                <a href="#" className="btn btn-lg btn-info btn-block">Google</a>
-              </div>
+
+
+class HomePage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            redirect: false,
+        };
+    }
+
+    componentDidMount() {
+        let data = JSON.parse(sessionStorage.getItem('userData'));
+        this.setState({ name: data.name })
+    }
+
+    render() {
+
+        const logout = () => {
+            sessionStorage.removeItem('userData');
+            this.setState({redirect: true});
+            
+        }
+        if (!sessionStorage.getItem('userData') || this.state.redirect) {
+            return (<Redirect to={'/'} />)
+        }
+
+        return (
+            <div >
+                Welcome {this.state.name}
+                <button onClick={logout}>
+                    Logout
+                </button>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
+        );
+    }
+}
 export default HomePage;
