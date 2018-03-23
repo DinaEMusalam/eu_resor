@@ -12,9 +12,16 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
+
+    let data = JSON.parse(sessionStorage.getItem('userData'));
+    let named = '';
+    if (data.name) {
+      named = data.name;
+    } else {
+      named = data.profileObj.name
+    }
     if (sessionStorage.getItem('userData')) {
-      let data = JSON.parse(sessionStorage.getItem('userData'));
-      this.setState({ name: data.profileObj.name } || { name: data.name })
+      this.setState({ name: named })
     }
   }
 
@@ -29,9 +36,10 @@ class HomePage extends React.Component {
     if (this.state.redirect || !sessionStorage.getItem('userData')) {
       return (<Redirect to={'/'} />)
     }
+
     return (
 
-      <div className="row body">
+      <div className="row">
         <div className="medium-12 columns">
           <div className="medium-12 columns">
             <h2 id="welcomeText"></h2>

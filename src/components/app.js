@@ -17,9 +17,9 @@ import Header from './Header'
 class App extends React.Component {
   render() {
     return (
-      <div className='body'>
+      <div  className="body">
         <div>
-          <Header className="p-5" />
+          <Header />
         </div>
         <Switch>
           <Route exact path="/" component={LoginPage} />

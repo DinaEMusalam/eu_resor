@@ -14,9 +14,6 @@ class LoginPage extends React.Component {
   }
 
   render() {
-
-  
-
     const responseFacebook = (response) => {
       sessionStorage.setItem("userData", JSON.stringify(response));
       this.setState({ redirect: true });
