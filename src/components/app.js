@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
+import LoginPage from './LoginPage';
 import HomePage from './HomePage';
 import FuelSavingsPage from './containers/FuelSavingsPage';
 import AboutPage from './AboutPage';
@@ -21,7 +22,8 @@ class App extends React.Component {
           <Header />
         </div>
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={LoginPage} />
+          <Route path="/Home" component={HomePage} />
           <Route path="/fuel-savings" component={FuelSavingsPage} />
           <Route path="/about" component={AboutPage} />
           <Route component={NotFoundPage} />
