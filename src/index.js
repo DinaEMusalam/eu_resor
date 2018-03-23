@@ -8,7 +8,7 @@ import Root from './components/Root';
 import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
 require('./favicon.ico'); // Tell webpack to load favicon.ico
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/toastr/build/toastr.min.css'
+import '../node_modules/toastr/build/toastr.min.css';
 const store = configureStore();
 
 render(
@@ -18,14 +18,15 @@ render(
   document.getElementById('app')
 );
 
-// if (module.hot) {
-//   module.hot.accept('./components/Root', () => {
-//     const NewRoot = require('./components/Root').default;
-//     render(
-//       <AppContainer>
-//         <NewRoot store={store} history={history} />
-//       </AppContainer>,
-//       document.getElementById('app')
-//     );
-//   });
-// }
+if (module.hot) {
+  module.hot.accept('./components/Root', () => {
+    const NewRoot = require('./components/Root').default;
+    render(
+      <AppContainer>
+        <NewRoot store={store} history={history} />
+      </AppContainer>,
+      document.getElementById('app')
+    );
+  });
+}
+
