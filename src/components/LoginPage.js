@@ -1,6 +1,6 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
-//import GoogleLogin from 'react-google-login';
+import GoogleLogin from 'react-google-login';
 import { Redirect } from 'react-router-dom';
 
 
@@ -15,23 +15,21 @@ class LoginPage extends React.Component {
 
   render() {
 
-    if (this.state.redirect || sessionStorage.getItem('userData')) {
-      return (<Redirect to={'/Home'} />)
-    }
+  
 
     const responseFacebook = (response) => {
-      console.log("facebook console");
-      console.log(response);
       sessionStorage.setItem("userData", JSON.stringify(response));
       this.setState({ redirect: true });
     }
 
-    // const responseGoogle = (response) => {
-    //   console.log("google console");
-    //   console.log(response);
-    //    sessionStorage.setItem("userData", JSON.stringify(response));
-    //    this.setState({ redirect: true });
-    // }
+    const responseGoogle = (response) => {
+      sessionStorage.setItem('userData', JSON.stringify(response));
+      this.setState({ redirect: true });
+    }
+
+    if (this.state.redirect && sessionStorage.getItem('userData')) {
+      return (<Redirect to={'/Home'} />)
+    }
 
     return (
       <div>
@@ -47,12 +45,15 @@ class LoginPage extends React.Component {
                     autoLoad={false}
                     fields="name,email,picture"
                     callback={responseFacebook} />
-                  
-
                 </div>
                 <br /><br />
                 <div className="col-xs-6 col-sm-6 col-md-6">
-                  <a href="#" className="btn btn-lg btn-info btn-block">Google</a>
+                  <GoogleLogin
+                    clientId="27092746582-v5003oq35s1sddg4dpbi0igvuhrupecb.apps.googleusercontent.com"
+                    buttonText="Login with Google"
+                    autoLoad={false}
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle} />
                 </div>
               </div>
             </div>
@@ -62,4 +63,5 @@ class LoginPage extends React.Component {
     );
   }
 }
+
 export default LoginPage;
