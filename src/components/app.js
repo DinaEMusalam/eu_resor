@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-  <Header />
+          <Header />
         </div>
         <Switch>
           <Route exact path="/" component={HomePage} />

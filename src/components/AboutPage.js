@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-
+import { GoogleLogout } from 'react-google-login';
 
 class AboutPage extends Component {
 
@@ -15,18 +15,34 @@ class AboutPage extends Component {
 
   componentDidMount() {
     let data = JSON.parse(sessionStorage.getItem('userData'));
-    this.setState({ name: data.userData.name })
+    this.setState({ name: data.profileObj.name })
   }
 
   render() {
 
-    if (!sessionStorage.getItem('userData') || this.state.redirect) {
+    const logout = (response) => {
+      console.log('logout response', response);
+      sessionStorage.removeItem('userData');
+      this.setState({ redirect: true });
+    }
+
+    if (this.state.redirect || !sessionStorage.getItem('userData')) {
       return (<Redirect to={'/'} />)
     }
 
     return (
       <div >
-        Welcome {this.state.name} , name={this.state.appName}
+        Welcome {this.state.name}
+        <br />
+        name={this.state.appName}
+        <br />
+        <button onClick={logout}>loggga utttttt</button>
+        <GoogleLogout
+          buttonText="Logout"
+          onLogoutSuccess={logout}>
+        </GoogleLogout>
+
+
         <br />
         <h2 className="alt-header">About</h2>
         <p>
