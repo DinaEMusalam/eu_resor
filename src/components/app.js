@@ -7,7 +7,7 @@ import HomePage from './HomePage';
 import FuelSavingsPage from './containers/FuelSavingsPage';
 import AboutPage from './AboutPage';
 import NotFoundPage from './NotFoundPage';
-import Header from './Header'
+
 
 
 // This is a class-based component because the current
@@ -17,18 +17,15 @@ import Header from './Header'
 class App extends React.Component {
   render() {
     return (
-      <div  className="body">
-        <div>
-          <Header />
-        </div>
-        <Switch>
-          <Route exact path="/" component={LoginPage} />
-          <Route path="/Home" component={HomePage} />
-          <Route path="/fuel-savings" component={FuelSavingsPage} />
-          <Route path="/about" component={AboutPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </div>
+
+      <Switch>
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/Home" component={HomePage} />
+        <Route path="/fuel-savings" component={FuelSavingsPage} />
+        <Route path="/about" component={AboutPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+
     );
   }
 }

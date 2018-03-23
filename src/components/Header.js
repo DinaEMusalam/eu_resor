@@ -1,13 +1,40 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 
 class Header extends React.Component {
+
+  componentDidMount() {
+
+    let data = JSON.parse(sessionStorage.getItem('userData'));
+    let named = '';
+    if (data.name) {
+      named = data.name;
+    } else {
+      named = data.profileObj.name
+    }
+    if (sessionStorage.getItem('userData')) {
+      this.setState({ name: named })
+    }
+  }
+
   render() {
+
+    const logout = (response) => {
+      console.log('logout response', response);
+      sessionStorage.removeItem('userData');
+      this.setState({ redirect: true });
+    }
+
+    if (this.state.redirect || !sessionStorage.getItem('userData')) {
+      return (<Redirect to={'/'} />)
+    }
+
+
     const activeStyle = { color: 'black' };
     return (
       <div>
@@ -26,6 +53,15 @@ class Header extends React.Component {
                 <NavLink className="nav-link" to="/about" activeStyle={activeStyle}>About</NavLink>
               </li>
             </ul>
+
+            <div className="row">
+              <div className="medium-12 columns">
+                <h2 id="welcomeText"></h2>
+                Welcome {this.state.name}
+                <button onClick={logout}>loggga utttttt</button>
+
+              </div>
+            </div>
           </div>
         </nav>
       </div>
