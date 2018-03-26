@@ -7,6 +7,13 @@ import { NavLink, Redirect } from 'react-router-dom';
 // component at the top-level.
 
 class Header extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state= {
+      name: ''
+    }
+  }
+  
 
   componentDidMount() {
 
@@ -22,6 +29,7 @@ class Header extends React.Component {
     }
   }
 
+
   render() {
 
     const logout = (response) => {
@@ -30,7 +38,7 @@ class Header extends React.Component {
       this.setState({ redirect: true });
     }
 
-    if (this.state.redirect || !sessionStorage.getItem('userData')) {
+    if (!sessionStorage.getItem('userData')) {
       return (<Redirect to={'/'} />)
     }
 

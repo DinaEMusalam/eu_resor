@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from './Header'
+import Header from './Header';
+import ApiService from "../service/Api.service";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -99,6 +100,8 @@ class HomePage extends React.Component {
                   <p> Average 4.1 <small> / </small> 5 </p>
                 </div>
               </a>
+
+<ApiService />
 
             </div>
           </div>
