@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
+import CountriesPage from './CountriesPage';
 
 class AboutPage extends Component {
 

@@ -60,6 +60,9 @@ class Header extends React.Component {
                 <Link className="nav-link" to="/fuel-saving">Demo-App</Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/countries">Countries</Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/about">About</Link>
               </li>
             </ul>
@@ -69,7 +72,7 @@ class Header extends React.Component {
                 <button onClick={logout}>loggga utttttt</button>
               </li>
             </ul>
-          </div>
+          </div>        
         </div>
       </nav>
     );
