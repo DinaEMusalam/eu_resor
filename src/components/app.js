@@ -1,33 +1,51 @@
 /* eslint-disable import/no-named-as-default */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route } from 'react-router-dom';
-import LoginPage from './LoginPage';
-import HomePage from './HomePage';
-import CountriesPage from './CountriesPage';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import Header from "./extra/Header";
+import LoginPage from './extra/LoginPage';
+import HomePage from './extra/HomePage';
+import CountriesPage from './country/CountriesPage';
 import FuelSavingsPage from './containers/FuelSavingsPage';
-import AboutPage from './AboutPage';
-import NotFoundPage from './NotFoundPage';
+import AboutPage from './about/AboutPage';
+import NotFoundPage from './extra/NotFoundPage';
 
 
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
-
 class App extends React.Component {
-  render() {
-    return (
 
-      <Switch>
-        <Route exact path="/" component={LoginPage} />
+  LoginContainer = () => (
+    <div className="container">
+      <Route path="/" component={LoginPage} />
+    </div>
+  )
+
+
+  DefaultContainer = () => (
+    <div>
+      <div className="container">
+        <Header />
         <Route path="/Home" component={HomePage} />
         <Route path="/countries" component={CountriesPage} />
         <Route path="/fuel-savings" component={FuelSavingsPage} />
         <Route path="/about" component={AboutPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+        {/* <Route component={NotFoundPage} /> */}
+      </div>
+    </div>
+  )
+  render() {
+    return (
+      <div className="routingDiv">
+        <Switch>
+          <Route exact path="/" component={this.LoginContainer} />
+          <Route component={this.DefaultContainer} />
+        </Switch>
 
+        {this.props.children}
+      </div>
     );
   }
 }

@@ -9,13 +9,13 @@ import './styles/styles.scss'; // Yep, that's right. You can import SASS/CSS fil
 require('./favicon.ico'); // Tell webpack to load favicon.ico
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
-import '../node_modules/react-bootstrap/dist/react-bootstrap'; 
+import '../node_modules/react-bootstrap/dist/react-bootstrap';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import { LoadCountries } from './actions/countryActions';
 
 const store = configureStore();
 
 store.dispatch(LoadCountries());
-console.log(store);
 
 render(
   <AppContainer>

@@ -4,18 +4,14 @@ import CountryListRow from './CountryListRow';
 
 
 const CountriesList = ({ countries }) => {
+    console.log('CountriesList', countries)
     return (
-       <table>
-           <thead></thead>
-           <tbody>
-               {
-                   countries.map(country =>
-                <CountryListRow key= {country.name} country= {country}/>
-            )}
-           </tbody>
-       </table>
-    );
-};
+
+        countries.map(country =>
+            <CountryListRow key={country.name} country={country} />
+       )   
+
+    )};
 
 
 

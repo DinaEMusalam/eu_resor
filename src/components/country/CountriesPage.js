@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import * as countriesActions from '../actions/countryActions';
+import * as countriesActions from '../../actions/countryActions';
 import CountriesList from './CountriesList';
 import { bindActionCreators } from 'redux';
-
+import { withRouter } from "react-router-dom";
 
 class CountriesPage extends Component {
     constructor(props, context) {
@@ -12,6 +12,7 @@ class CountriesPage extends Component {
     }
 
     render() {
+        console.log('Countries in countriePage', this.props)
         return (
             <div className="col-md-12">
                 <h1>Countries</h1>
@@ -24,16 +25,17 @@ class CountriesPage extends Component {
 }
 
 CountriesPage.propTypes = {
-   // countries: PropTypes.array.isRequired,
+   countries: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 
 };
 
 const mapStateToProps = (state, ownProps) => {
+    console.log('mapState:', ownProps);
     return {
         countries: state.countries
     };
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -41,4 +43,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountriesPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CountriesPage));

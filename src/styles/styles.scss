@@ -7,10 +7,13 @@ $vin-red: #ff0000;
 /* Styles */
 
 #app {
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     padding: 50px;
-    
+}
+html, body, .routingDiv {
+  margin: 0;
+  height: 100%;
 }
 
 a.list-group-item {
@@ -24,11 +27,84 @@ a.list-group-item.active small {
   margin:20px auto 1px;    
 }
 
-@media (min-width: 992px){
-  
-  .navbar-expand-lg .navbar-collapse {
-   
-    display: inline-block !important;
-  }
+.btnFacebook { 
+  width: 200px;
+  height:35px;  
+  border-radius: 4px;
+  background: #3b5998;
+  color:white;
+  border:0px transparent;  
+  text-align: center;
+  margin:5px;
+  display: inline-block;
 }
+.btnGoogle { 
+  margin:5px;
+  width: 200px;
+  height:35px;
+  border-radius: 4px;
+  background: #db3236;
+  color:white;
+  border:0px transparent;
+  text-align: center;
+}
+
+.btnFacebook:hover {
+  background: #3b5998;
+  opacity: 0.6;
+}
+.btnGoogle:hover {
+  background: #db3236;
+  opacity: 0.6;
+}
+
+// @media only screen and (max-width : 399px) {
+//   .btnFacebook,.btnGoogle{
+//     width: 100%
+//   }
+// }
+
+
+.Login {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height:100%;
+  background-color: #f5f5f5;
+}
+
+.w3-circle {
+  width: 100px;
+  height: 100px;
+  padding: 7px;
+}
+
+.parent {
+  display: -webkit-box;
+}
+// @media (min-width: 992px){
+  
+//   .navbar-expand-lg .navbar-collapse {
+   
+//     //display: inline-block !important;
+//   }
+// }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 900px) {
+ 
+ .wrapper{
+   display: grid;
+ } 
+.w3-rest {
+  text-align: -webkit-auto !important;
+  font-size: smaller !important;
+}
+
+.w3-col{
+  width: 50%  !important;
+}
+
+
+
+} 
 
