@@ -45,31 +45,28 @@ class Header extends React.Component {
       return (<Redirect to={'/'} />)
     }
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <a className="navbar-brand abs" href="#"> EU Resor</a>
+          <a className="navbar-brand abs" href="/Home"> EU Resor</a>
           <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           <div className={`${classOne}`} id="navbarResponsive">
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <Link className="nav-link" to="/">Home</Link>
+                <Link className="nav-link" to="/Home">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/fuel-saving">Demo-App</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/countries">Countries</Link>
+                <Link className="nav-link" to="/contact">Contact</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about">About</Link>
               </li>
             </ul>
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                {this.state.name}
-                <button onClick={logout}>loggga utttttt</button>
+              <li className="navleft">
+                <p className="username">Welcome {this.state.name}</p>
+                <button type="button" className="btn btn-danger btn-md" onClick={logout}>logga ut</button> 
               </li>
             </ul>
           </div>        

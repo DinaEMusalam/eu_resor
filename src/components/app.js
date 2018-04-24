@@ -5,9 +5,9 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from "./extra/Header";
 import LoginPage from './extra/LoginPage';
 import HomePage from './extra/HomePage';
-import CountriesPage from './country/CountriesPage';
 import FuelSavingsPage from './containers/FuelSavingsPage';
 import AboutPage from './about/AboutPage';
+import Contact from './contact/contact';
 import NotFoundPage from './extra/NotFoundPage';
 
 
@@ -28,14 +28,17 @@ class App extends React.Component {
     <div>
       <div className="container">
         <Header />
+        <br/>
         <Route path="/Home" component={HomePage} />
-        <Route path="/countries" component={CountriesPage} />
-        <Route path="/fuel-savings" component={FuelSavingsPage} />
+        <Route path="/contact" component={Contact} />
         <Route path="/about" component={AboutPage} />
         {/* <Route component={NotFoundPage} /> */}
       </div>
     </div>
   )
+
+
+
   render() {
     return (
       <div className="routingDiv">

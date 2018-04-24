@@ -23,6 +23,9 @@ class HomePage extends React.Component {
 
       return (
         <div className="body">
+          <div className="alert alert-info">
+            <strong>Info!</strong> För Ytterligare information om landet , Klicka på Flaggan
+            </div>
           <CountriesList countries={this.props.countries} />
         </div>
       );
@@ -56,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage));

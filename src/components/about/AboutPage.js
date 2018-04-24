@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
-import CountriesPage from '../country/CountriesPage';
 
 class AboutPage extends Component {
 
@@ -12,11 +11,6 @@ class AboutPage extends Component {
       redirect: false,
       appName: "Login with Facebook and Google using ReactJS and RESTful APIs",
     };
-  }
-
-  componentDidMount() {
-    let data = JSON.parse(sessionStorage.getItem('userData'));
-    this.setState({ name: data.profileObj.name })
   }
 
   render() {

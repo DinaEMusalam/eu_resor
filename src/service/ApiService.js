@@ -44,7 +44,6 @@ export default class ApiService extends Component {
                 let result = response.data.filter((country) => {
                     return (country.region == "Europe");
                 })
-                console.log('ApiCountries: ',result);
                 return result;
             }).catch(error => {
                 return error;
